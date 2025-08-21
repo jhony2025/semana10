@@ -1,87 +1,93 @@
-# semana10
-Manipulación de archivos y manejo de excepciones:
 
-=== Sistema de Gestión de Inventarios ===
-1. Mostrar inventario
-2. Agregar producto
-3. Eliminar producto
-4. Salir
-Elige una opción:
+---
 
-Sistema de Gestión de Inventarios Mejorado
+#  Manipulación de Archivos y Manejo de Excepciones
 
-Este proyecto es una versión mejorada del sistema de gestión de inventarios desarrollado anteriormente.
-La mejora principal consiste en la persistencia de datos en archivos y el manejo robusto de excepciones, lo que permite un sistema más realista, resiliente y profesional.
+# 🗂️ Sistema de Gestión de Inventarios Mejorado
 
-Mejoras Respecto al Inventario Anterior
+Este proyecto es una **versión mejorada** del sistema de gestión de inventarios desarrollado anteriormente.
+La mejora principal consiste en la **persistencia de datos en archivos** y el **manejo robusto de excepciones**, lo que permite un sistema más realista, resiliente y profesional.
 
-Persistencia de Datos
+---
 
-Ahora los productos se guardan en un archivo (inventario.txt).
+#  Mejoras Respecto al Inventario Anterior
 
-Al iniciar el programa, los datos se cargan automáticamente.
+## Persistencia de Datos
 
-Ya no se pierde información al cerrar el programa.
+* Los productos se guardan en un archivo (`inventario.txt`).
+* Al iniciar el programa, los datos se cargan automáticamente.
+* Ya no se pierde información al cerrar el programa.
 
-Manejo de Excepciones
+## Manejo de Excepciones
 
-Control de errores al abrir, leer y escribir archivos:
+* Control de errores al abrir, leer y escribir archivos:
 
-FileNotFoundError → crea el archivo si no existe.
+  * `FileNotFoundError` → crea el archivo si no existe.
+  * `PermissionError` → muestra un error sin que el programa se cierre.
+  * Líneas corruptas en el archivo → se ignoran con advertencia.
 
-PermissionError → muestra un error sin que el programa se cierre.
+## 📌 Interfaz de Usuario Mejorada
 
-Líneas corruptas en el archivo → se ignoran con advertencia.
+* Mensajes claros de éxito o fallo al agregar, eliminar o mostrar productos.
+* Notificación cuando el inventario está vacío o un producto no existe.
 
-Interfaz de Usuario Mejorada
+## Organización del Código
 
-Mensajes claros de éxito o fallo al agregar, eliminar o mostrar productos.
+* Separación en dos módulos:
 
-Notificación cuando el inventario está vacío o un producto no existe.
+  * `inventario.py` → lógica de negocio y manejo de archivos.
+  * `main.py` → menú interactivo en consola.
+* Uso de `with open(...)` para mayor seguridad en la manipulación de archivos.
 
-Organización del Código
+---
 
-Separación en dos módulos:
+#  Ejemplo de Uso
 
-inventario.py → lógica de negocio y manejo de archivos.
+### Agregar productos
 
-main.py → menú interactivo en consola.
-
-Uso de with open(...) para mayor seguridad en la manipulación de archivos.
-
-Ejemplo de Uso
-1. Agregar productos
-Nombre del producto: Lápiz
-Cantidad: 50
+```
+Nombre del producto: Lápiz  
+Cantidad: 50  
 [OK] Producto 'Lápiz' agregado/actualizado correctamente.
+```
 
-Mostrar inventario
+### Mostrar inventario
+
+```
 --- Inventario Actual ---
 Lápiz: 50
 -------------------------
+```
 
-Eliminar producto
-Nombre del producto a eliminar: Lápiz
+### Eliminar producto
+
+```
+Nombre del producto a eliminar: Lápiz  
 [OK] Producto 'Lápiz' eliminado del inventario.
+```
 
-   ⚠️ Pruebas de Robustez
+---
 
-Archivo inexistente: se crea automáticamente.
+#  Pruebas de Robustez
 
-Archivo corrupto (ejemplo: productoX,abc): se ignora la línea con advertencia.
+* **Archivo inexistente** → se crea automáticamente.
+* **Archivo corrupto** (ejemplo: `productoX,abc`) → se ignora la línea con advertencia.
+* **Sin permisos de escritura** → muestra error sin interrumpir la ejecución.
 
-Sin permisos de escritura: muestra error sin interrumpir la ejecución.
+---
 
-Conclusión
+# Conclusión
 
 Este sistema aplica conceptos de:
 
-Persistencia con archivos en Python
+* **Persistencia con archivos en Python**
+* **Manejo de excepciones** (`try`, `except`, `finally`)
+* **Organización modular del código**
+* **Interacción con el usuario en consola**
 
-Manejo de excepciones (try, except, finally)
+ Demuestra cómo un proyecto básico puede evolucionar hacia una aplicación **más realista, resiliente y mantenible**.
 
-Organización modular del código
+---
 
-Interacción con el usuario en consola
+¿Quieres que le agregue al README también una **sección inicial con instrucciones de instalación y ejecución paso a paso** (para que tu profe pueda correrlo sin problemas)?
 
-Demuestra cómo un proyecto básico puede evolucionar hacia una aplicación más realista, resiliente y mantenible.
